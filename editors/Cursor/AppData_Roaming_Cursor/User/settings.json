@@ -1,0 +1,21 @@
+{
+    "[python]": {
+        "editor.formatOnType": true,
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "python.autoComplete.extraPaths": ["${workspaceFolder}"],   
+    "python.analysis.extraPaths": ["${workspaceFolder}"],
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${workspaceFolder}"
+    },
+    "editor.accessibilityPageSize": 14,
+    "workbench.colorTheme": "Default High Contrast",
+    // correct color self and cls python
+    "editor.semanticTokenColorCustomizations": {
+        "[Default High Contrast]": {
+            "rules": {
+                "selfParameter": "#bc98ff",
+            },
+        },
+    }
+}

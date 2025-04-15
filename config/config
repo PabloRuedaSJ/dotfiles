@@ -1,0 +1,13 @@
+REM ##### Clone Git Repo #####
+SET "USER_FOLDER=Pablo Rueda"
+git clone https://github.com/PabloRuedaSJ/dotfiles.git "C:\Users\%USER_FOLDER%\.dotfiles"
+
+REM ##### Editors #####
+
+REM ##### CURSOR AI editor #####
+REM # Remove .cursor if exists
+IF EXIST "C:\Users\%USER_FOLDER%\.cursor" RD "C:\Users\%USER_FOLDER%\.cursor" /S /Q
+REM # Set Symbolic Link
+Mklink /D "C:\Users\%USER_FOLDER%\.cursor" "C:\Users\%USER_FOLDER%\.dotfiles\editors\Cursor\.cursor" 
+REM # Copy settings into AppData\Roaming\Cursor
+xcopy "C:\Users\%USER_FOLDER%\.dotfiles\editors\Cursor\AppData_Roaming_Cursor\User\settings.json" "C:\Users\%USER_FOLDER%\AppData\Roaming\Cursor\User"
