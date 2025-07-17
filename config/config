@@ -1,9 +1,27 @@
 REM ##### Clone Git Repo #####
+SET "USER_OLD_FOLDER=Pablo Rueda"
 SET "USER_FOLDER=Pablo Rueda"
 git clone https://github.com/PabloRuedaSJ/dotfiles.git "C:\Users\%USER_FOLDER%\.dotfiles"
 
-REM ##### Editors #####
+REM ##### Winget installations #####
+winget install -e --id Python.Python.3.11
+winget install -e --id Microsoft.VisualStudioCode
+winget install -e --id Docker.DockerDesktop
+winget install -e --id RedHat.Podman-Desktop
+winget install -e --id Anaconda.Anaconda3
+winget install -e --id PostgreSQL.pgAdmin
+winget install -e --id MongoDB.Compass.Full
 
+REM ##### Linux Windows Subsystem #####
+wsl --install
+wsl --install -d Ubuntu-22.04
+
+REM ##### Astronomer Airflow #####
+wsl --update
+wsl --install --no-distribution
+winget install -e --id Astronomer.Astro
+
+REM ##### Editors #####
 REM ##### CURSOR AI editor #####
 REM # Remove .cursor if exists
 IF EXIST "C:\Users\%USER_FOLDER%\.cursor" RD "C:\Users\%USER_FOLDER%\.cursor" /S /Q
