@@ -11,6 +11,7 @@ winget install -e --id RedHat.Podman-Desktop
 winget install -e --id Anaconda.Anaconda3
 winget install -e --id PostgreSQL.pgAdmin
 winget install -e --id MongoDB.Compass.Full
+winget install -e --id Postman.Postman
 
 REM ##### Linux Windows Subsystem #####
 wsl --install
