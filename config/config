@@ -1,28 +1,41 @@
 REM ##### Clone Git Repo #####
 SET "USER_OLD_FOLDER=Pablo Rueda"
-SET "USER_FOLDER=Pablo Rueda"
-git clone https://github.com/PabloRuedaSJ/dotfiles.git "C:\Users\%USER_FOLDER%\.dotfiles"
-
-REM ##### Winget installations #####
-winget install -e --id Python.Python.3.11
-winget install -e --id Microsoft.VisualStudioCode
-winget install -e --id Docker.DockerDesktop
-winget install -e --id RedHat.Podman-Desktop
-winget install -e --id Anaconda.Anaconda3
-winget install -e --id PostgreSQL.pgAdmin
-winget install -e --id MongoDB.Compass.Full
-winget install -e --id Postman.Postman
+SET "USER_FOLDER=pablo_driverevel"
 
 REM ##### Linux Windows Subsystem #####
 wsl --install
-wsl --install -d Ubuntu-22.04
 
 REM ##### Astronomer Airflow #####
 wsl --update
 wsl --install --no-distribution
+wsl --install -d Ubuntu-22.04
+
+REM ##### Winget installations #####
+REM ## Basic software ##
+winget install -e --id Git.Git
+winget install -e --id Microsoft.VisualStudioCode
+winget install -e --id Anaconda.Miniconda3
+
+REM ## Company software ##
+winget install -e --id SlackTechnologies.Slack
+winget install -e --id Gather.Gather
+
+REM ## Role specific software ##
+winget install -e --id Docker.DockerDesktop
+winget install -e --id PostgreSQL.pgAdmin
+winget install -e --id MongoDB.Compass.Full
+winget install -e --id Postman.Postman
 winget install -e --id Astronomer.Astro
 
+REM ##### Install Conda and set its Paths #####
+winget install -e --id Anaconda.Miniconda3
+setx PATH "%PATH%;C:\Users\%USER_FOLDER%\miniconda3"
+setx PATH "%PATH%;C:\Users\%USER_FOLDER%\miniconda3\Scripts"
+setx PATH "%PATH%;C:\Users\%USER_FOLDER%\miniconda3\Library\bin"
+
 REM ##### Editors #####
+git clone https://github.com/PabloRuedaSJ/dotfiles.git "C:\Users\%USER_FOLDER%\.dotfiles"
+
 REM ##### CURSOR AI editor #####
 REM # Remove .cursor if exists
 IF EXIST "C:\Users\%USER_FOLDER%\.cursor" RD "C:\Users\%USER_FOLDER%\.cursor" /S /Q
