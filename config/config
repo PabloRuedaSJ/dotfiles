@@ -13,8 +13,6 @@ wsl --install -d Ubuntu-22.04
 REM ##### Winget installations #####
 REM ## Basic software ##
 winget install -e --id Git.Git
-winget install -e --id Microsoft.VisualStudioCode
-winget install -e --id Anaconda.Miniconda3
 
 REM ## Company software ##
 winget install -e --id SlackTechnologies.Slack
@@ -33,8 +31,16 @@ setx PATH "%PATH%;C:\Users\%USER_FOLDER%\miniconda3"
 setx PATH "%PATH%;C:\Users\%USER_FOLDER%\miniconda3\Scripts"
 setx PATH "%PATH%;C:\Users\%USER_FOLDER%\miniconda3\Library\bin"
 
+REM ##### Coding Languages #####
+winget install -e --id Python.Python.3.12
+
 REM ##### Editors #####
 git clone https://github.com/PabloRuedaSJ/dotfiles.git "C:\Users\%USER_FOLDER%\.dotfiles"
+
+setx PYTHONPATH "${workspaceFolder}"
+
+REM ##### VS CODE editor #####
+winget install -e --id Microsoft.VisualStudioCode
 
 REM ##### CURSOR AI editor #####
 REM # Remove .cursor if exists
